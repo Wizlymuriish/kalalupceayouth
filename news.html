@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCEA Kalalu Youth - News</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- AOS for animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <!-- Custom Colors -->
+    <style>
+        .bg-custom-blue { background-color: #002cbd; }
+        .bg-custom-red { background-color: #008b05; }
+        .text-custom-blue { color: #1e8a25; }
+        .text-custom-red { color: #dc2626; }
+        .border-custom-blue { border-color: #1e3a8a; }
+        
+        /* Custom styles for article transitions */
+        .article-container {
+            transition: all 0.3s ease;
+        }
+        
+        .article-detail {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        
+        .article-detail.active {
+            max-height: 2000px;
+        }
+        
+        .news-list {
+            transition: opacity 0.3s ease;
+        }
+        
+        .news-list.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-white font-sans">
+    <!-- Navigation -->
+    <nav class="bg-custom-blue text-white shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                 <div class="h-10 w-10 rounded-full bg-white flex items-center justify-center">
+  <img src="download.jpeg" alt="PCEA Kalalu Logo" class="h-6 w-6 object-contain" onerror="this.style.display='none'; this.parentElement.querySelector('span').classList.remove('hidden');">
+  <span class="text-custom-blue font-bold hidden">PCEA</span>
+</div>
+                <span class="text-xl font-bold">PCEA Kalalu Youth</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="hover:text-gray-300 font-medium">Home</a>
+                <a href="images.html" class="hover:text-gray-300 font-medium">Images</a>
+                <a href="contacts.html" class="hover:text-gray-300 font-medium">Contacts</a>
+                <a href="news.html" class="hover:text-gray-300 font-medium border-b-2 border-white">News</a>
+            </div>
+            <button class="md:hidden focus:outline-none" id="menu-toggle">
+                <i data-feather="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-custom-blue px-4 py-2" id="mobile-menu">
+            <a href="index.html" class="block py-2 hover:text-gray-300">Home</a>
+            <a href="images.html" class="block py-2 hover:text-gray-300">Images</a>
+            <a href="contacts.html" class="block py-2 hover:text-gray-300">Contacts</a>
+            <a href="news.html" class="block py-2 hover:text-gray-300">News</a>
+        </div>
+    </nav>
+
+    <!-- News Header -->
+    <header class="bg-custom-red text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4" data-aos="fade-down">Latest News</h1>
+            <p class="text-xl md:text-2xl" data-aos="fade-up">Updates from PCEA Kalalu Youth Department</p>
+        </div>
+    </header>
+
+    <!-- News Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <!-- News List -->
+            <div id="news-list" class="news-list max-w-4xl mx-auto space-y-10">
+                <!-- News Article 1 -->
+                <article class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-100" data-aos="fade-up">
+                    <div class="flex items-center text-sm text-gray-500 mb-3">
+                        <i data-feather="calendar" class="w-4 h-4 mr-2"></i>
+                        <time>October 25, 2025</time>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-3"> This Sunday Presentation Song</h2>
+                    <p class="text-gray-600 mb-4">
+                        Bwana u sehemu Yangu
+                    </p>
+                    <button class="read-more-btn inline-flex items-center text-custom-blue font-medium hover:underline" data-article="1">
+                        click for lyrics
+                        <i data-feather="arrow-right" class="w-4 h-4 ml-1"></i>
+                    </button>
+                </article>
+
+                <!-- News Article 2 -->
+                <article class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-100" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center text-sm text-gray-500 mb-3">
+                        <i data-feather="calendar" class="w-4 h-4 mr-2"></i>
+                        <time>October 19, 2025</time>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-3">Election of New Leaders</h2>
+                    <p class="text-gray-600 mb-4">
+                        A New Crew for Our Youth! Meet Your New Youth Leaders.
+                    </p>
+                    <button class="read-more-btn inline-flex items-center text-custom-blue font-medium hover:underline" data-article="2">
+                        Read more
+                        <i data-feather="arrow-right" class="w-4 h-4 ml-1"></i>
+                    </button>
+                </article>
+
+                <!-- News Article 3 -->
+                <article class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-100" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center text-sm text-gray-500 mb-3">
+                        <i data-feather="calendar" class="w-4 h-4 mr-2"></i>
+                        <time>October 19, 2025</time>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-3">Exiting Youth Leaders</h2>
+                    <p class="text-gray-600 mb-4">
+                        Celebrating our Long-Term Youth Leaders
+                    </p>
+                    <button class="read-more-btn inline-flex items-center text-custom-blue font-medium hover:underline" data-article="3">
+                        Read more
+                        <i data-feather="arrow-right" class="w-4 h-4 ml-1"></i>
+                    </button>
+                </article>
+
+                <!-- News Article 4 -->
+                <article class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-100" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center text-sm text-gray-500 mb-3">
+                        <i data-feather="calendar" class="w-4 h-4 mr-2"></i>
+                        <time>October 23, 2025</time>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-3">Celebrating a Season of Youth Ministry Impact</h2>
+                    <p class="text-gray-600 mb-4">
+                         A Look Back at the Impact of Our Youth Ministry
+                    <button class="read-more-btn inline-flex items-center text-custom-blue font-medium hover:underline" data-article="4">
+                        Read more
+                        <i data-feather="arrow-right" class="w-4 h-4 ml-1"></i>
+                    </button>
+                </article>
+            </div>
+            
+            <!-- Article Details Section -->
+            <div id="article-details" class="max-w-4xl mx-auto hidden">
+                <!-- Article 1 Details -->
+                <div id="article-1" class="article-detail">
+                    <div class="bg-white p-8 rounded-lg shadow-lg border border-gray-100">
+                        <div class="flex items-center text-sm text-gray-500 mb-4">
+                            <i data-feather="calendar" class="w-4 h-4 mr-2"></i>
+                            <time>October 25, 2025</time>
+                            <span class="mx-2">•</span>
+                            <i data-feather="clock" class="w-4 h-4 mr-1"></i>
+                            <span>3 min read</span>
+                        </div>
+                        <h1 class="text-3xl font-bold text-gray-800 mb-6">This Sunday Presentation Song</h1>
+                        
+                        <div class="prose max-w-none text-gray-700 mb-8">
+                            <p class="mb-4 text-lg">
+                               </p>
+                               <p> Bwana U sehemu Yangu,Rafiki Yangu Wewe</p>
+<p>Katika safari yangu, tatembea na wewe Pamoja na wewe,</p>
+<p>Pamoja na wewe, pamoja na Wewe</p>
+<p>Katika safari yangu, tatembea na wewe</p>
+<p>Mali hapa sikutaka, ili niheshimiwe,</p>
+<p>Na yanikute mashaka, sawasawa na wewe</p>
+<p>Heri nikute mashaka sawasawa na wewe. </p>
+<p>Niongoze safarini Mbele unichukue</p>
+<p>Mlangoni mwa Mbinguni, niingie na wewe </p>
+<p>Pamoja na wewe, pamoja na wewe</p>
+<p>Mlangoni mwa Mbinguni, niingie na wewe</p>
+                            </p>
+                            
+                            <h2 class="text-xl font-bold text-custom-blue mt-8 mb-4">Kikuyu Service</h2>
+                            <ul class="list-disc pl-5 mb-6 space-y-2">
+                                <li><strong>Date:</strong> Sunday, October 25, 2025</li>
+                                
+                                <li><strong>Location:</strong> Main Church</li>
+                                
+                            </ul>
+                            
+                           
+                            <blockquote class="border-l-4 border-custom-blue pl-4 italic my-6 text-gray-600">
+                                "Now faith is confidence in what we hope for and assurance about what we do not see." 
+                                - Hebrews 11:1
+                            </blockquote>
+                        </div>
+                        
+                        <div class="flex justify-between items-center pt-6 border-t border-gray-200">
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i data-feather="user" class="w-4 h-4 mr-2"></i>
+                                <span>Posted by Youth Department</span>
+                            </div>
+                            <button id="back-to-news" class="bg-custom-blue text-white px-6 py-2 rounded-lg hover:bg-blue-900 transition flex items-center">
+                                <i data-feather="arrow-left" class="w-4 h-4 mr-2"></i>
+                                Back to News
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Article 2 Details -->
+                <div id="article-2" class="article-detail">
+                    <div class="bg-white p-8 rounded-lg shadow-lg border border-gray-100">
+                        <div class="flex items-center text-sm text-gray-500 mb-4">
+                            <i data-feather="calendar" class="w-4 h-4 mr-2"></i>
+                            <time>October 19, 2025</time>
+                            <span class="mx-2">•</span>
+                            <i data-feather="clock" class="w-4 h-4 mr-1"></i>
+                            <span>4 min read</span>
+                        </div>
+                        <h1 class="text-3xl font-bold text-gray-800 mb-6"> A New Crew for Our Youth! Meet Your New Youth Leaders!</h1>
+                        
+                        <div class="prose max-w-none text-gray-700 mb-8">
+                            <p class="mb-4 text-lg">
+                               Hey Fam❤️!
+
+We are absolutely pumped to introduce the new leaders God has brought to our youth ministry! This is more than just filling positions; it's about raising up an incredible team of passionate Jesus-followers who are dedicated to loving, guiding, and discipling the next generation.
+
+Our youth are not just the future of the church—they are a vital part of the church right now. We believe this team is uniquely gifted to help our members navigate their faith in a complex world and to create a space where they feel known, loved, and challenged to grow.
+
+So, without further ado, let's meet the crew!
+
+Your New Youth Leadership Team:
+<p class="mb-4 text-lg"> Diana - Chairperson</p> 
+
+<p class="mb-4 text-lg">Vincent Mutuma - Treasurer</p>
+
+<p class="mb-4 text-lg">John - Secretary</p>
+
+<p class="mb-4 text-lg">Mark Kagika - Vice Secretary</p>
+A Huge Thank You!
+We also want to shout a massive THANK YOU to our outgoing leaders. Their dedication, late nights, and love for our members have left a lasting impact. Let's be sure to thank them when we see them!
+                            </p>
+                            
+                            
+                            <h2 class="text-xl font-bold text-custom-blue mt-8 mb-4">How You Can Support the New Era of Youth Ministry:</h2>
+                            <p class="mb-4">
+                                PRAY FIRST: Please cover this new team in prayer. Pray for energy, wisdom, creativity, and protection over their lives and families.
+                            </p>
+                            <p class="mb-4">
+                                ENCOURAGE: See these leaders around? Tell them you're praying for them! Your support means the world.
+                            </p><p class="mb-4">
+                               CONSIDER: Is God calling YOU to get involved? We always need more small group leaders, snack providers, and behind-the-scenes helpers. 
+                            </p>
+                            
+                            
+                            <h2 class="text-xl font-bold text-custom-blue mt-8 mb-4">Special Announcement</h2>
+                            <p class="mb-4">
+                                We're so excited for the energy, passion, and heart for Jesus that this team is bringing to our youth group. Let's rally around them with prayer and encouragement!
+                            </p>
+                            <p class="mb-4">
+                               
+                            </p>
+                            
+                            <blockquote class="border-l-4 border-custom-blue pl-4 italic my-6 text-gray-600">
+                                "Give thanks to the Lord, for he is good; his love endures forever." 
+                                - 1 Chronicles 16:34
+                            </blockquote>
+                        </div>
+                        
+                        <div class="flex justify-between items-center pt-6 border-t border-gray-200">
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i data-feather="user" class="w-4 h-4 mr-2"></i>
+                                <span>Posted by Church Office</span>
+                            </div>
+                            <button id="back-to-news-2" class="bg-custom-blue text-white px-6 py-2 rounded-lg hover:bg-blue-900 transition flex items-center">
+                                <i data-feather="arrow-left" class="w-4 h-4 mr-2"></i>
+                                Back to News
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Article 3 Details -->
+                <div id="article-3" class="article-detail">
+                    <div class="bg-white p-8 rounded-lg shadow-lg border border-gray-100">
+                        <div class="flex items-center text-sm text-gray-500 mb-4">
+                            <i data-feather="calendar" class="w-4 h-4 mr-2"></i>
+                            <time>October 19, 2025</time>
+                            <span class="mx-2">•</span>
+                            <i data-feather="clock" class="w-4 h-4 mr-1"></i>
+                            <span>3 min read</span>
+                        </div>
+                        <h1 class="text-3xl font-bold text-gray-800 mb-6">Exiting Youth Leaders/Office</h1>
+                        
+                        <div class="prose max-w-none text-gray-700 mb-8">
+                            <p class="mb-4 text-lg">
+                               With a mix of deep gratitude and bittersweet emotion, we announce that our previous Youth Office will be concluding their ministry soon.
+
+For the past 1 years, They have poured their hearts and souls into our members. They have been more than just leaders; they have been mentors, friends, and passionate guides who have pointed our youth toward Jesus through every kesha night, youth rallies, and small group discussion.
+
+Their impact is etched into the lives of countless young people. We will always remember and be thankful for:
+
+<p class="mb-4 text-lg">-Their unwavering commitment to our own projects</p>.
+
+<p class="mb-4 text-lg">-The way they engaged our youth members in lots of activities.</p>
+
+<p class="mb-4 text-lg">-The 2025 Youth Week project Implementation</p>
+
+While we will miss them tremendously, we send them off with our deepest blessings, immense thanks, and full confidence that God has incredible plans for them ahead.
+<p class="mb-4 text-lg">They include;</p>
+<p class="mb-4 text-lg">Leon Mwangi - Youth Chairman 2024/2025</p>
+<p class="mb-4 text-lg">Wilfred Muriithi - Vice Chairman 2024/2025</p>
+<p class="mb-4 text-lg">Peter Karoki - Treasurer 2024/2025</p>
+                            </p>
+                            
+                            
+                            <h2 class="text-xl font-bold text-custom-blue mt-8 mb-4">Message From The Former Youth Chairman</h2>
+                            <p class="mb-4">
+                           As you all may know I've served in the ministry for 3 years and am about to finish my term by the end of this year indeed it's not my doing but it's been God all the way I'd like to appreciate each and everyone of you you've made my leadership to be smooth and easy as I serve I know I can't get 💯% but I tried to my level best thanks for what we've managed to do and to the new incoming team may the almighty God bless you as you serve and as you show us the way.
+Otherwise thanks everyone thanks to the executive led by Peter Karoki and Wilfred Muriithi, indeed it's been a blessing working with you guys 
+<p class="mb-4 text-lg">Philippians 4:6 Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God.</p>
+May God bless you in a mighty way and may he always hear your cries when you call upon his name shalom
+                            </p>
+                            
+                            
+                            <h2 class="text-xl font-bold text-custom-blue mt-8 mb-4">How We Can Say Thank You & Farewell</h2>
+                            <p class="mb-4">
+                                Please join us in praying for them in this time of transition. And rest assured, our church leadership is actively and prayerfully seeking God's direction for the next chapter of our youth ministry. We are confident in the foundation that has been laid and excited for what God will do next.
+                            </p>
+                            
+                            
+                            <blockquote class="border-l-4 border-custom-blue pl-4 italic my-6 text-gray-600">
+                                "Your word is a lamp for my feet, a light on my path." 
+                                - Psalm 119:105
+                            </blockquote>
+                        </div>
+                        
+                        <div class="flex justify-between items-center pt-6 border-t border-gray-200">
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i data-feather="user" class="w-4 h-4 mr-2"></i>
+                                <span>Posted by Kalalu Media Team</span>
+                            </div>
+                            <button id="back-to-news-3" class="bg-custom-blue text-white px-6 py-2 rounded-lg hover:bg-blue-900 transition flex items-center">
+                                <i data-feather="arrow-left" class="w-4 h-4 mr-2"></i>
+                                Back to News
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Article 4 Details -->
+                <div id="article-4" class="article-detail">
+                    <div class="bg-white p-8 rounded-lg shadow-lg border border-gray-100">
+                        <div class="flex items-center text-sm text-gray-500 mb-4">
+                            <i data-feather="calendar" class="w-4 h-4 mr-2"></i>
+                            <time>October 23, 2025</time>
+                            <span class="mx-2">•</span>
+                            <i data-feather="clock" class="w-4 h-4 mr-1"></i>
+                            <span>5 min read</span>
+                        </div>
+                        <h1 class="text-3xl font-bold text-gray-800 mb-6">Celebrating a Season of Youth Ministry Impact</h1>
+                        
+                        <div class="prose max-w-none text-gray-700 mb-8">
+                            <p class="mb-4 text-lg">
+                       As we welcome a new team to lead our youth, we are compelled to pause and celebrate the mighty work God did through our previous youth leaders. Their faithful service from September 2024 to October 2025 has left a lasting mark on our church and the kingdom of God.
+
+We believe in giving thanks where it is due.
+                            
+                          
+                            
+                            
+                            <h2 class="text-xl font-bold text-custom-blue mt-8 mb-4">A Legacy That Continues</h2>
+                            <p class="mb-4">
+                                The foundation they built is strong. The relationships they forged are lasting. And the members they discipled are now stronger in their faith. For all of this, we say Thank You to the former Leadership and Praise God for His unwavering faithfulness.
+
+The best way we can honor this legacy is to continue supporting our youth ministry with the same passion and commitment. Let's step into this new season with expectation, building on the strong foundation that has been laid.
+                            </p>
+                            
+                            
+                            <blockquote class="border-l-4 border-custom-blue pl-4 italic my-6 text-gray-600">
+                                "And the things you have heard me say in the presence of many witnesses entrust to reliable people who will also be qualified to teach others." 
+                                - 2 Timothy 2:2
+                            </blockquote>
+                        </div>
+                        
+                        <div class="flex justify-between items-center pt-6 border-t border-gray-200">
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i data-feather="user" class="w-4 h-4 mr-2"></i>
+                                <span>Posted by Youth Department</span>
+                            </div>
+                            <button id="back-to-news-4" class="bg-custom-blue text-white px-6 py-2 rounded-lg hover:bg-blue-900 transition flex items-center">
+                                <i data-feather="arrow-left" class="w-4 h-4 mr-2"></i>
+                                Back to News
+                            </button>
+        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-xl font-bold">PCEA Kalalu Youth</h3>
+                    <p class="text-gray-400">Rooted in Christ, Growing in Purpose</p>
+                </div>
+                
+            </div>
+            <div class="border-t border-gray-800 mt-6 pt-6 text-center text-gray-400">
+                <p>&copy; 2025 PCEA Kalalu Youth Department. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // Article navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const readMoreButtons = document.querySelectorAll('.read-more-btn');
+            const newsList = document.getElementById('news-list');
+            const articleDetails = document.getElementById('article-details');
+            const backButtons = document.querySelectorAll('[id^="back-to-news"]');
+            
+            // Show article details when "Read more" is clicked
+            readMoreButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const articleId = this.getAttribute('data-article');
+                    
+                    // Hide news list
+                    newsList.classList.add('hidden');
+                    
+                    // Show article details container
+                    articleDetails.classList.remove('hidden');
+                    
+                    // Hide all article details
+                    document.querySelectorAll('.article-detail').forEach(detail => {
+                        detail.classList.remove('active');
+                    });
+                    
+                    // Show the selected article
+                    const selectedArticle = document.getElementById(`article-${articleId}`);
+                    selectedArticle.classList.add('active');
+                    
+                    // Scroll to top of article details
+                    articleDetails.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+            
+            // Back to news functionality
+            backButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Hide article details
+                    articleDetails.classList.add('hidden');
+                    
+                    // Show news list
+                    newsList.classList.remove('hidden');
+                    
+                    // Hide all article details
+                    document.querySelectorAll('.article-detail').forEach(detail => {
+                        detail.classList.remove('active');
+                    });
+                    
+                    // Scroll to top of news list
+                    newsList.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+        });
+        
+        // Initialize Feather Icons
+        feather.replace();
+    </script>
+</body>
+</html>
