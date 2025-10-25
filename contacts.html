@@ -11,10 +11,10 @@
     <script src="https://unpkg.com/feather-icons"></script>
     <style>
         .bg-custom-blue {
-            background-color: #1e3a8a;
+            background-color: #002cbd;
         }
         .bg-custom-red {
-            background-color: #dc2626;
+            background-color: #008b05;
         }
         .text-custom-blue {
             color: #1e3a8a;
@@ -42,6 +42,7 @@
                 <a href="index.html" class="hover:text-gray-300 font-medium">Home</a>
                 <a href="images.html" class="hover:text-gray-300 font-medium">Images</a>
                 <a href="contacts.html" class="hover:text-gray-300 font-medium">Contacts</a>
+                   <a href="news.html" class="hover:text-gray-300 font-medium border-b-2 border-white">News</a>
             </div>
             <button class="md:hidden focus:outline-none" id="menu-toggle">
                 <i data-feather="menu" class="w-6 h-6"></i>
@@ -52,6 +53,7 @@
             <a href="index.html" class="block py-2 hover:text-gray-300">Home</a>
             <a href="images.html" class="block py-2 hover:text-gray-300">Images</a>
             <a href="contacts.html" class="block py-2 hover:text-gray-300">Contacts</a>
+             <a href="news.html" class="block py-2 hover:text-gray-300">News</a>
         </div>
     </nav>
 
@@ -140,24 +142,26 @@
     </section>
 
     <!-- Map Section -->
-    <section class="py-16 bg-red-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-custom-blue mb-12" data-aos="fade-up">Our Location</h2>
-            
-            <div class="max-w-4xl mx-auto bg-white p-4 rounded-lg shadow-md" data-aos="zoom-in">
-                <div class="aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg overflow-hidden">
-                    <!-- Placeholder for map -->
-                    <div class="w-full h-96 flex items-center justify-center bg-gradient-to-r from-custom-blue to-custom-red text-black">
-                        <div class="text-center">
-                            <i data-feather="map" class="w-12 h-12 mx-auto mb-4"></i>
-                            <p class="text-xl font-bold">PCEA Kalalu Church</p>
-                            <p>Kalalu, Umande Ward, Laikipia East</p>
-                        </div>
-                    </div>
-                </div>
+   <section class="py-16 bg-red-50">
+    <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center text-custom-blue mb-12" data-aos="fade-up">Our Location</h2>
+
+        <div class="max-w-4xl mx-auto bg-white p-4 rounded-lg shadow-md" data-aos="zoom-in">
+            <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden">
+                <!-- Embedded Google Map -->
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.993588110622!2d37.1623416!3d0.0670713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1787fbe67599c149%3A0x1a4efbf982f888!2sPCEA%20KALALU%20CHURCH!5e0!3m2!1sen!2ske!4v1729885200000!5m2!1sen!2ske"
+                    width="100%"
+                    height="400"
+                    style="border:0; border-radius: 0.5rem;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-8">
@@ -167,11 +171,7 @@
                     <h3 class="text-xl font-bold">PCEA Kalalu Youth</h3>
                     <p class="text-gray-400">Rooted in Christ, Growing in Purpose</p>
                 </div>
-                <div class="flex space-x-6">
-                    <a href="#" class="hover:text-gray-300"><i data-feather="facebook"></i></a>
-                    <a href="#" class="hover:text-gray-300"><i data-feather="twitter"></i></a>
-                    <a href="#" class="hover:text-gray-300"><i data-feather="instagram"></i></a>
-                </div>
+                
             </div>
             <div class="border-t border-gray-800 mt-6 pt-6 text-center text-gray-400">
                 <p>&copy; 2025 PCEA Kalalu Youth Department. All rights reserved.</p>
